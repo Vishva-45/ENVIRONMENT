@@ -2,7 +2,7 @@ name: Deployment
 on:
   push:
     branches:
-      - main
+      - master
 env:
   MONGODB_DB_NAME: cluster0
   PORT: 8080
