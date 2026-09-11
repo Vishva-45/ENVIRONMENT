@@ -8,9 +8,12 @@ env:
   PORT: ${{ secrets.username }}
 jobs:
   deploy:
+    environment: testing
+    env:
+     PORTS: ${{ secrets.username }}
     runs-on: windows-latest
     steps:
       - name: Output information
         run: |        
-          write-host "this is the port number : $env:PORT"
-          write-host "another way to print he port number : ${{ env.PORT}}"
+          write-host "this is the port number : $env:PORTS"
+          write-host "another way to print he port number : ${{ env.PORTS}}"
