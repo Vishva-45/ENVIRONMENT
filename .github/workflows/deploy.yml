@@ -18,7 +18,7 @@ jobs:
         run: |
          rcho
       - name: Output information
-        if: failure() && steps.test.outputs == 'failure'
+        if: failure() && steps.test.outcome == 'failure'
         run: |        
           write-host "this is the port number : $env:PORT"
           write-host "another way to print he port number : ${{ env.PORTS}}"
