@@ -13,7 +13,12 @@ jobs:
      PORTS: ${{ secrets.username }}
     runs-on: windows-latest
     steps:
+      - name: testing
+        id: test
+        run: |
+         rcho
       - name: Output information
+        if: steps.test.ouputs == 'failure'
         run: |        
           write-host "this is the port number : $env:PORT"
           write-host "another way to print he port number : ${{ env.PORTS}}"
