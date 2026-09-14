@@ -16,6 +16,8 @@ jobs:
             runner: ubuntu-latest
     runs-on: ${{ matrix.runner}} 
     steps:
+      - name: get-code
+        uses: action/checkout@v4
       - name: install JS
         uses: action/setup-node@v4
         with:
