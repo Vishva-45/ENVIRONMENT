@@ -1,24 +1,15 @@
-name: Deployment
+name: matrix strategy
 on:
-  push:
-    branches:
-      - master
-env:
-  MONGODB_DB_NAME: cluster0
-  PORT: ${{ secrets.username }}
+  push
 jobs:
-  deploy:
-    environment: testing
-    env:
-     PORTS: ${{ secrets.username }}
-    runs-on: windows-latest
+  build:
+    strategy:
+      matrix:
+        version: [14,16,12]
+        runner: [windows-latest,ubuntu-latest]
+    runs-on: ${{ matrix.runner}} 
     steps:
-      - name: testing
-        continue-on-error: true
-        id: test
-        run: |
-         rcho
-      - name: Output information
-        run: |        
-          write-host "this is the port number : $env:PORT"
-          write-host "another way to print he port number : ${{ env.PORTS}}"
+      - name: install JS
+        uses: action/setup-node@v4
+        with:
+          node-version: ${{matrix.version}}
