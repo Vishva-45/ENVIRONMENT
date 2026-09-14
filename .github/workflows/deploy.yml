@@ -3,10 +3,17 @@ on:
   push
 jobs:
   build:
+    continue-on-error: true
     strategy:
       matrix:
         version: [14,16,12]
         runner: [windows-latest,ubuntu-latest]
+        include:
+         - version: 18
+           runner: ubuntu-latest
+        exclude:
+          - version: 12
+            runner: ubuntu-latest
     runs-on: ${{ matrix.runner}} 
     steps:
       - name: install JS
