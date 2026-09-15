@@ -9,8 +9,14 @@ on:
     secrets:
       name:
         required: true
+    outputs:
+      OP:
+        description: nothing important just output 
+        value: ${{ jobs.print.outputs.outcome}}
 jobs:
   print:
+    outputs:
+      outcome: ${{ steps.demo.outputs.firstop}}
     runs-on: ubuntu-latest
     steps:
       - name: just print
@@ -19,4 +25,4 @@ jobs:
           echo "test by ${{inputs.testinput1 }} for second time to find about secret working "
       - name: produce output
         id: demo
-        run: echo "firstop=success >> $GITHUB_OUTPUT" 
+        run: echo "firstop=success" >> $GITHUB_OUTPUT
