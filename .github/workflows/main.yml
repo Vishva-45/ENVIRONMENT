@@ -1,0 +1,15 @@
+name: main
+on:
+    push
+jobs:
+    check:
+        runs-on: windows-latest
+        steps:
+            - name: just print
+              run: write-host "printing"
+
+    calling:
+        runs-on: ubuntu-latest
+        steps:
+            - name: calling workflow
+              uses: ./.github/workflows/reusable.yml
