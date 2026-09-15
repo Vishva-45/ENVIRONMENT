@@ -18,3 +18,10 @@ jobs:
             testinput1: someone
         secrets:
             name: ${{ secrets.USERNAME}}
+    
+    printing:
+        needs: calling
+        runs-on: ubuntu-latest
+        steps:
+            - name: print output
+              run: echo" ${{ needs.calling.outputs.OP}}

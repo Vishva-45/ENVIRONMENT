@@ -17,3 +17,6 @@ jobs:
         run: |
           echo "test by ${{inputs.testinput1 }}  by using the secredt ${{ secrets.name}}"
           echo "test by ${{inputs.testinput1 }} for second time to find about secret working "
+      - name: produce output
+        id: demo
+        run: echo "firstop=success >> $GITHUB_OUTPUT" 
