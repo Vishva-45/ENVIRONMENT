@@ -14,4 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: just print
-        run: echo "test by ${{inputs.testinput1 }}  by using the secredt ${{ secrets.name}}"
+        run: |
+          echo "test by ${{inputs.testinput1 }}  by using the secredt ${{ secrets.name}}"
+          echo "test by ${{inputs.testinput1 }} for second time to find about secret working "
