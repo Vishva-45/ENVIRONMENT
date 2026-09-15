@@ -5,6 +5,8 @@ jobs:
     check:
         runs-on: windows-latest
         steps:
+            - name: get-code
+              uses: actions/checkout@v4
             - name: just print
               run: write-host "printing"
 
