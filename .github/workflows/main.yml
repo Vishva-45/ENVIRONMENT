@@ -1,6 +1,7 @@
 name: main
 on:
-    push
+    workflow_dispatch:
+    push:
 jobs:
     check:
         runs-on: windows-latest
@@ -13,3 +14,5 @@ jobs:
     calling:
         needs: check
         uses: ./.github/workflows/reusable.yml
+        with:
+            testinput1: vishva
