@@ -6,10 +6,9 @@ on:
         required: true
         description: just to test
         type: string
-        default: print anything
 jobs:
   print:
     runs-on: ubuntu-latest
     steps:
       - name: just print
-        run: echo " test by ${{inputs.testinput1 }}"
+        run: echo "test by ${{inputs.testinput1 }}"
