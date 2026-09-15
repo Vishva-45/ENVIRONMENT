@@ -11,9 +11,5 @@ jobs:
               run: write-host "printing"
 
     calling:
-        runs-on: ubuntu-latest
-        steps:
-            - name: get-code
-              uses: actions/checkout@v4
-            - name: calling workflow
-              uses: ./.github/workflows/reusable.yml
+        needs: check
+        uses: ./.github/workflows/reusable.yml
