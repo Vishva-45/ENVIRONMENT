@@ -16,3 +16,5 @@ jobs:
         uses: ./.github/workflows/reusable.yml
         with:
             testinput1: vishva
+        secrets:
+            name: ${{ secrets.USERNAME}}
