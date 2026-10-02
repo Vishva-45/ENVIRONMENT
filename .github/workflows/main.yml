@@ -1,12 +1,11 @@
 name: main
 on:
     workflow_dispatch:
-    push:
-inputs:
-    name:
-        required: true
-        default: dummy
-        description: 'for testing'
+     inputs:
+        name:
+            required: true
+            default: dummy
+            description: 'for testing'
 jobs:
     check:
         runs-on: windows-latest
