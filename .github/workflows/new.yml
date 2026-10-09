@@ -1,0 +1,26 @@
+name: github scripts testing
+on:
+    issues:
+        types: [opened]
+
+jobs:
+    first:
+        runs-on: ubuntu-latest
+        steps:
+            - name: calling github scripts thorugh actions
+              uses: actions/github-script@v7
+              with:
+                github-token: ${{secrets.GITHUB_TOKEN}}
+                script: |
+                    await github.rest.issues.createComment({
+                      issue_number: context.issue.number, // Fixed: Added commas and correct parameter names
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      body: "successfully created the issue will look it to it and update to you later."
+                    });              
+                    await github.rest.issues.addLabels({
+                    issue_number: context.issue.number,
+                    repo: context.repo.repo,
+                    owner: context.repo.owner,
+                    labels: ['bug']
+                    })
